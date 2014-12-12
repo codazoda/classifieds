@@ -12,9 +12,12 @@
         
         setInterval(resizeImages, 250);
         
-        $('#newAd').click(getPicture);
+        $(document).ready(function() {
+            $('#newAd').on('click', function() { getPicture(); });
+        });
         
         function getPicture() {
+            alert('hi');
             navigator.camera.getPicture(onPictureSuccess, onPictureFail, {quality:50, destinationType: Camera.DestinationType.DATA_URL});
         }
         
