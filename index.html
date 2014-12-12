@@ -3,56 +3,7 @@
 <head>
  
 	<title>Classifieds</title>
- 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
- 
-	<!-- Internal Javascript -->
-	<script type="text/javascript">
-        
-        setInterval(resizeImages, 250);
-        
-        $(document).ready(function() {
-            $('#newAd').on('click', function() { getPicture(); });
-            navigator.notification.alert("PhoneGap is ready!");
-        });
-        
-        function getPicture() {
-            if (!navigator.camera) {
-                alert('can not camera');
-            } else {
-                navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
-                    quality: 75,
-                    destinationType: Camera.DestinationType.DATA_URL
-                });
-            }
-        }
-        
-        function onPictureSuccess() {
-            alert('Got image.');
-        }
-        
-        function onPictureFail() {
-            alert('That no good.');
-        }
-        
-        function showIcons(className) {
-            $(className).show();
-        }
-        
-		function resizeImages() {
-            // Setup some variables to hold the class names
-            imageClass = ".item_image";
-            divClass = ".items";
-            // Resize to 16x9
-            $(divClass).width( $(window).width() );
-            $(divClass).height( $(window).width()*9/16 );
-            $(imageClass).width( $(window).width() );
-            $(imageClass).height( $(window).width()*9/16 );
-        }
-        
-	</script>
- 
+  
 	<!-- Internal CSS -->
 	<style type="text/css">
  
@@ -163,8 +114,59 @@
         </div>
     </div>
 
+<!-- Cordova -->
 <script src="cordova.js"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Internal Javascript -->
+<script type="text/javascript">
     
+    setInterval(resizeImages, 250);
+    
+    $(document).ready(function() {
+        $('#newAd').on('click', function() { getPicture(); });
+        navigator.notification.alert("PhoneGap is ready!");
+    });
+    
+    function getPicture() {
+        if (!navigator.camera) {
+            alert('can not camera');
+        } else {
+            navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
+                quality: 75,
+                destinationType: Camera.DestinationType.DATA_URL
+            });
+        }
+    }
+    
+    function onPictureSuccess() {
+        alert('Got image.');
+    }
+    
+    function onPictureFail() {
+        alert('That no good.');
+    }
+    
+    function showIcons(className) {
+        $(className).show();
+    }
+    
+    function resizeImages() {
+        // Setup some variables to hold the class names
+        imageClass = ".item_image";
+        divClass = ".items";
+        // Resize to 16x9
+        $(divClass).width( $(window).width() );
+        $(divClass).height( $(window).width()*9/16 );
+        $(imageClass).width( $(window).width() );
+        $(imageClass).height( $(window).width()*9/16 );
+    }
+    
+</script>
+
+
 </body>
  
 </html>
