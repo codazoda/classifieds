@@ -65,7 +65,20 @@
             color: white;
             font-size: 16px;
         }
-        
+        input {
+            width: 100%;
+            margin: 10px;
+            padding: 10px;
+        }
+        button {
+            width: 100%;
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            border: 0;
+            font-size: 1.25em;
+        }
 	</style>
  
     <!-- Font Awesome Glyph Icons -->
@@ -79,9 +92,13 @@
         <div class="title">Back</div>
     </div>
     <div style="clear: both"></div>
-	<div class="pictureDiv">
+	<div class="items">
         <img id="picture" class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
     </div>
+    
+    <input id="caption" type="text" value="Caption"></input>
+    <input id="price" type="text" value="Price"></input>
+    <button>Save</button>
 
 <!-- Cordova -->
 <script src="cordova.js"></script>
@@ -92,8 +109,13 @@
 <!-- Internal Javascript -->
 <script type="text/javascript">
     
+    setInterval(resizeImages, 250);
+    
     document.addEventListener("deviceready", onDeviceReady, false);
-
+    
+    $('#caption').on('focus', function() { $('#caption').val(''); });
+    $('#price').on('focus', function() { $('#price').val(''); });
+    
     function onDeviceReady() {
         
         getPicture();
@@ -119,6 +141,17 @@
     
     function onPictureFail() {
         alert('That no good.');
+    }
+    
+    function resizeImages() {
+        // Setup some variables to hold the class names
+        imageClass = ".item_image";
+        divClass = ".items";
+        // Resize to 16x9
+        $(divClass).width( $(window).width() );
+        $(divClass).height( $(window).width()*9/16 );
+        $(imageClass).width( $(window).width() );
+        $(imageClass).height( $(window).width()*9/16 );
     }
         
 </script>
