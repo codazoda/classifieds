@@ -79,8 +79,8 @@
         <div class="title">Back</div>
     </div>
     <div style="clear: both"></div>
-	<div class="picture">
-        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
+	<div class="pictureDiv">
+        <img id="picture" class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
     </div>
 
 <!-- Cordova -->
@@ -106,14 +106,15 @@
         } else {
             navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
                 quality: 75,
-                
+                sourceType: 1,
+                encodingType: 0,
                 destinationType: Camera.DestinationType.DATA_URL
             });
         }
     }
     
-    function onPictureSuccess() {
-        alert('Got image.');
+    function onPictureSuccess(imageData) {
+        $('#picture').attr('src', "data:image/jpeg;base64," + imageData);
     }
     
     function onPictureFail() {
