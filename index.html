@@ -6,6 +6,9 @@
  
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    <!-- Cordova -->
+    <script src="cordova.js"></script>
  
 	<!-- Internal Javascript -->
 	<script type="text/javascript">
@@ -17,7 +20,7 @@
         });
         
         function getPicture() {
-            alert('hi');
+            //alert('hi');
             navigator.camera.getPicture(onPictureSuccess, onPictueFail, { 
                 quality: 75,
                 destinationType: Camera.DestinationType.DATA_URL
