@@ -5,7 +5,6 @@
         versionCode="100"
         version   = "1.0.0">
 
-    <gap:platform name="ios" />
     <gap:platform name="android" />
     <gap:platform name="winphone" />
 
