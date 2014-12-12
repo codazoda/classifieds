@@ -1,162 +1,174 @@
 <!DOCTYPE html>
- 
-<head>
- 
-	<title>Classifieds</title>
-  
-	<!-- Internal CSS -->
-	<style type="text/css">
- 
-		* { box-sizing: border-box; }
-		body { background-color: white; margin: 0; padding: 0; font-family: sans-serif; font-size: 12px; }
-		p { margin: 0; padding: 0; }
-        img { width: 320px; }
-        .items {
-            position: relative;
-            margin: 0;
-            padding: 0;
-            cursor: pointer;
-        }
-        .item_caption {
-            background-color: rgba(0,0,0,0.5);
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-            color: white;
-            padding: 5px;
-            font-weight: normal;
-            font-size: 16px;
-        }
-        .item_icons {
-            cursor: default;
-            display: none;
-            background-color: rgba(0,0,0,0.5);
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            padding: 10px;
-            margin-top: 10px;
-            color: white;
-            font-size: 16px;
-            letter-spacing: 10px;
-        }
-        .fa-check {
-            color: rgb(93,255,0);
-        }
-        .clickable {
-            cursor: pointer;
-        }
-        .menu {
-            padding: 10px;
-            float: right;
-        }
-        .menu p {
-            padding: 10px;
-        }
-        .title {
-            float: left;
-            padding: 10px;
-            font-weight: bold;
-        }
-        .header {
-            background-color: black;
-            position: relative;
-            overflow: hidden;
-            color: white;
-            font-size: 16px;
-        }
-        input {
-            width: 100%;
-            margin: 10px;
-            padding: 10px;
-        }
-        button {
-            width: 100%;
-            margin: 10px;
-            padding: 10px;
-            color: white;
-            background-color: black;
-            border: 0;
-            font-size: 1.25em;
-        }
-	</style>
- 
-    <!-- Font Awesome Glyph Icons -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
- 
-</head>
- 
-<body>
- 
-    <div class="header">
-        <div class="title">Back</div>
-    </div>
-    <div style="clear: both"></div>
-	<div class="items">
-        <img id="picture" class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
-    </div>
-    
-    <input id="caption" type="text" value="Caption"></input>
-    <input id="price" type="text" value="Price"></input>
-    <button>Save</button>
+<html>
+	<head>
 
-<!-- Cordova -->
-<script src="cordova.js"></script>
+		<title>Classifieds</title>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<!-- Internal CSS -->
+		<style type="text/css">
 
-<!-- Internal Javascript -->
-<script type="text/javascript">
-    
-    setInterval(resizeImages, 250);
-    
-    document.addEventListener("deviceready", onDeviceReady, false);
-    
-    $('#caption').on('focus', function() { $('#caption').val(''); });
-    $('#price').on('focus', function() { $('#price').val(''); });
-    
-    function onDeviceReady() {
-        
-        getPicture();
-        
-    }
-    
-    function getPicture() {
-        if (!navigator.camera) {
-            alert('can not camera');
-        } else {
-            navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
-                quality: 75,
-                sourceType: 1,
-                encodingType: 0,
-                destinationType: Camera.DestinationType.DATA_URL
-            });
-        }
-    }
-    
-    function onPictureSuccess(imageData) {
-        $('#picture').attr('src', "data:image/jpeg;base64," + imageData);
-    }
-    
-    function onPictureFail() {
-        alert('That no good.');
-    }
-    
-    function resizeImages() {
-        // Setup some variables to hold the class names
-        imageClass = ".item_image";
-        divClass = ".items";
-        // Resize to 16x9
-        $(divClass).width( $(window).width() );
-        $(divClass).height( $(window).width()*9/16 );
-        $(imageClass).width( $(window).width() );
-        $(imageClass).height( $(window).width()*9/16 );
-    }
-        
-</script>
+			body { background-color: white; margin: 0; padding: 0; font-family: sans-serif; font-size: 12px; }
+			p { margin: 0; padding: 0; }
+			img { width: 320px; }
+			.items {
+				position: relative;
+				margin: 0;
+				padding: 0;
+				cursor: pointer;
+			}
+			.item_caption {
+				background-color: rgba(0, 0, 0, 0.5);
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+				color: white;
+				padding: 5px;
+				font-weight: normal;
+				font-size: 16px;
+			}
+			.item_icons {
+				cursor: default;
+				display: none;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				padding: 10px;
+				margin-top: 10px;
+				color: white;
+				font-size: 16px;
+				letter-spacing: 10px;
+			}
+			.fa-check {
+				color: rgb(93, 255, 0);
+			}
+			.clickable {
+				cursor: pointer;
+			}
+			.menu {
+				padding: 10px;
+				float: right;
+			}
+			.menu p {
+				padding: 10px;
+			}
+			.title {
+				float: left;
+				padding: 10px;
+				font-weight: bold;
+			}
+			.header {
+				background-color: black;
+				position: relative;
+				overflow: hidden;
+				color: white;
+				font-size: 16px;
+			}
+			input {
+				width: 100%;
+				margin: 10px;
+				padding: 10px;
+			}
+			button {
+				width: 100%;
+				margin: 10px 10px 10px 20px;
+				color: white;
+				background-color: black;
+				border: 0;
+				font-size: 1.25em;
+			}
+			#formish {
+				position: relative;
+				width: 90%;
+				margin: 10px;
+				padding: 10px;
+			}
+		</style>
+
+		<!-- Font Awesome Glyph Icons -->
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="title">Back</div>
+		</div>
+		<div style="clear: both"></div>
+		<div class="items">
+			<img id="picture" class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
+		</div>
+		<div id="formish">
+			<input id="caption" type="text" value="Caption"/>
+			<br/>
+			<input id="price" type="text" value="Price"/>
+			<br/>
+			<button>Save</button>
+		</div>
 
 
-</body>
- 
+		<!-- Cordova -->
+		<script src="cordova.js"></script>
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		<!-- Internal Javascript -->
+		<script type="text/javascript">
+
+			setInterval(resizeImages, 250);
+
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+			$('#caption').on('focus', function() {
+				$('#caption').val('');
+			});
+			$('#price').on('focus', function() {
+				$('#price').val('');
+			});
+
+			function onDeviceReady() {
+
+				getPicture();
+
+			}
+
+			function getPicture() {
+				if(!navigator.camera) {
+					alert('can not camera');
+				} else {
+					navigator.camera.getPicture(onPictureSuccess, onPictureFail, {
+						quality: 75,
+						sourceType: 1,
+						encodingType: 0,
+						destinationType: Camera.DestinationType.DATA_URL
+					});
+				}
+			}
+
+			function onPictureSuccess(imageData) {
+				$('#picture').attr('src', "data:image/jpeg;base64," + imageData);
+			}
+
+			function onPictureFail() {
+				alert('That no good.');
+			}
+
+			function resizeImages() {
+				// Setup some variables to hold the class names
+				imageClass = ".item_image";
+				divClass = ".items";
+				// Resize to 16x9
+				$(divClass).width($(window).width());
+				$(divClass).height($(window).width() * 9 / 16);
+				$(imageClass).width($(window).width());
+				$(imageClass).height($(window).width() * 9 / 16);
+			}
+
+		</script>
+
+
+	</body>
+
 </html>
