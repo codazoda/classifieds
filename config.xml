@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.joeldare.classifieds"
+        versionCode="100"
+        version   = "1.0.0">
+
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+    <gap:platform name="winphone" />
+
+    <name>Classifieds</name>
+
+    <description>
+        A quick hyper-local classifeds app.
+    </description>
+
+    <author href="http://www.joeldare.com" email="joel@joeldare.com">
+        Joel Dare
+    </author>
+    
+    <icon src="icon/icon_120x120.png" width="120" height="120" />
+    
+    <!-- iOS Icons -->
+    <icon src="icon/icon_57x57.png" width="57" height="57" />
+    <icon src="icon/icon_72x72.png" width="72" height="72" />
+    <icon src="icon/icon_76x76.png" width="76" height="76" />
+    <icon src="icon/icon_120x120.png" width="120" height="120" />
+    
+    <!-- Plugins -->
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    
+    <preference name="webviewbounce" value="false" />
+
+    <preference name="permissions" value="none" />
+    
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+
+</widget>
