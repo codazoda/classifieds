@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     
     <!-- Cordova -->
-    <script src="phonegap.js"></script>
+    <script src="cordova.js"></script>
  
 	<!-- Internal Javascript -->
 	<script type="text/javascript">
@@ -20,11 +20,14 @@
         });
         
         function getPicture() {
-            alert('pic');
-            navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
-                quality: 75,
-                destinationType: Camera.DestinationType.DATA_URL
-            });
+            if (!navigator.camera) {
+                alert('can not camera');
+            } else {
+                navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
+                    quality: 75,
+                    destinationType: Camera.DestinationType.DATA_URL
+                });
+            }
         }
         
         function onPictureSuccess() {
