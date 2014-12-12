@@ -21,6 +21,7 @@
     <icon src="icon.png" />
     
     <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
     
     <preference name="webviewbounce" value="false" />
 
