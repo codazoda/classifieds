@@ -76,42 +76,11 @@
 <body>
  
     <div class="header">
-        <div class="title">Classifieds</div>
-        <a href="add.html"><div id="newAd" class="menu fa fa-plus"></div></a>
+        <div class="title">Back</div>
     </div>
     <div style="clear: both"></div>
-	<div class="items" onclick="showIcons('.item1');">
+	<div class="picture">
         <img class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
-        <h2 class="item_caption">'79 Ford Pinto $199</h2>
-        <div class="item_icons item1">
-            <span class="fa fa-check"></span>
-            <span class="clickable fa fa-comment"></span>
-            <span class="clickable fa fa-phone"></span>
-        </div>
-    </div>
-	<div class="items">
-        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/commons/e/ed/MataoArtistBass_Black_2_tone-rear_2.JPG">
-        <h2 class="item_caption">Electric Guitar $150</h2>
-        <div class="item_icons">
-            <span class="fa fa-comment"></span>
-            <span class="fa fa-phone"></span>
-        </div>
-    </div>
-	<div class="items">
-        <img class="item_image" src="http://img.ksl.com/mx/mplace-classifieds.ksl.com/1733268-1418327583-551095.jpg?filter=ksl/gallery1">
-        <h2 class="item_caption">Tire Set P225/60R16</h2>
-        <div class="item_icons">
-            <span class="fa fa-comment"></span>
-            <span class="fa fa-phone"></span>
-        </div>
-    </div>
-	<div class="items">
-        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
-        <h2 class="item_caption">'79 Ford Pinto $199</h2>
-        <div class="item_icons">
-            <span class="fa fa-comment"></span>
-            <span class="fa fa-phone"></span>
-        </div>
     </div>
 
 <!-- Cordova -->
@@ -123,27 +92,34 @@
 <!-- Internal Javascript -->
 <script type="text/javascript">
     
-    setInterval(resizeImages, 250);
-    
-    $(document).ready(function() {
-        $('#newAd').on('click', function() { getPicture(); });
-    });
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
         
-    function showIcons(className) {
-        $(className).show();
+        getPicture();
+        
     }
     
-    function resizeImages() {
-        // Setup some variables to hold the class names
-        imageClass = ".item_image";
-        divClass = ".items";
-        // Resize to 16x9
-        $(divClass).width( $(window).width() );
-        $(divClass).height( $(window).width()*9/16 );
-        $(imageClass).width( $(window).width() );
-        $(imageClass).height( $(window).width()*9/16 );
+    function getPicture() {
+        if (!navigator.camera) {
+            alert('can not camera');
+        } else {
+            navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
+                quality: 75,
+                
+                destinationType: Camera.DestinationType.DATA_URL
+            });
+        }
     }
     
+    function onPictureSuccess() {
+        alert('Got image.');
+    }
+    
+    function onPictureFail() {
+        alert('That no good.');
+    }
+        
 </script>
 
 
