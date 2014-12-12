@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+ 
+<head>
+ 
+	<title>Classifieds</title>
+ 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ 
+	<!-- Internal Javascript -->
+	<script type="text/javascript">
+        
+        setInterval(resizeImages, 250);
+        
+        function showIcons(className) {
+            $(className).show();
+        }
+        
+		function resizeImages() {
+            // Setup some variables to hold the class names
+            imageClass = ".item_image";
+            divClass = ".items";
+            // Resize to 16x9
+            $(divClass).width( $(window).width() );
+            $(divClass).height( $(window).width()*9/16 );
+            $(imageClass).width( $(window).width() );
+            $(imageClass).height( $(window).width()*9/16 );
+        }
+        
+	</script>
+ 
+	<!-- Internal CSS -->
+	<style type="text/css">
+ 
+		* { box-sizing: border-box; }
+		body { background-color: white; margin: 0; padding: 0; font-family: sans-serif; font-size: 12px; }
+		p { margin: 0; padding: 0; }
+        img { width: 320px; }
+        .items {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+        .item_caption {
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            color: white;
+            padding: 5px;
+            font-weight: normal;
+            font-size: 16px;
+        }
+        .item_icons {
+            cursor: default;
+            display: none;
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            padding: 10px;
+            margin-top: 10px;
+            color: white;
+            font-size: 16px;
+            letter-spacing: 10px;
+        }
+        .fa-check {
+            color: rgb(93,255,0);
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .menu {
+            padding: 10px;
+            float: right;
+        }
+        .menu p {
+            padding: 10px;
+        }
+        .title {
+            float: left;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .header {
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            font-size: 16px;
+        }
+        
+	</style>
+ 
+    <!-- Font Awesome Glyph Icons -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+ 
+</head>
+ 
+<body>
+ 
+    <div class="header">
+        <div class="title">Classifieds</div>
+        <div class="menu fa fa-plus"></div>
+    </div>
+    <div style="clear: both"></div>
+	<div class="items" onclick="showIcons('.item1');">
+        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
+        <h2 class="item_caption">'79 Ford Pinto $199</h2>
+        <div class="item_icons item1">
+            <span class="fa fa-check"></span>
+            <span class="clickable fa fa-comment"></span>
+            <span class="clickable fa fa-phone"></span>
+        </div>
+    </div>
+	<div class="items">
+        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/commons/e/ed/MataoArtistBass_Black_2_tone-rear_2.JPG">
+        <h2 class="item_caption">Electric Guitar $150</h2>
+        <div class="item_icons">
+            <span class="fa fa-comment"></span>
+            <span class="fa fa-phone"></span>
+        </div>
+    </div>
+	<div class="items">
+        <img class="item_image" src="http://img.ksl.com/mx/mplace-classifieds.ksl.com/1733268-1418327583-551095.jpg?filter=ksl/gallery1">
+        <h2 class="item_caption">Tire Set P225/60R16</h2>
+        <div class="item_icons">
+            <span class="fa fa-comment"></span>
+            <span class="fa fa-phone"></span>
+        </div>
+    </div>
+	<div class="items">
+        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
+        <h2 class="item_caption">'79 Ford Pinto $199</h2>
+        <div class="item_icons">
+            <span class="fa fa-comment"></span>
+            <span class="fa fa-phone"></span>
+        </div>
+    </div>
+    
+</body>
+ 
+</html>

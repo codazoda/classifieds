@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+ 
+<head>
+ 
+	<title>Classifieds</title>
+ 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ 
+	<!-- Internal Javascript -->
+	<script type="text/javascript">
+        
+        setInterval(resizeImages, 1000);
+        
+		function resizeImages() {
+            // Setup some variables to hold the class names
+            imageClass = ".item_image";
+            divClass = ".items";
+            // Resize to 16x9
+            $(divClass).width( $(window).width() );
+            $(divClass).height( $(window).width()*9/16 );
+            $(imageClass).width( $(window).width() );
+            $(imageClass).height( $(window).width()*9/16 );
+        }
+        
+	</script>
+ 
+	<!-- Internal CSS -->
+	<style type="text/css">
+ 
+		* { box-sizing: border-box; }
+		body { background-color: white; margin: 0; padding: 0; font-family: sans-serif; font-size: 12px; }
+		p { margin-bottom: 10px; }
+        img { width: 320px; }
+        .header { height: 20px; }
+        .items { position: relative; margin: 0; padding: 0; }
+        .item_caption {
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            color: white;
+            padding: 5px;
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .item_icons {
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+	</style>
+    
+    <!-- Font Awesome Glyph Icons -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+ 
+</head>
+ 
+<body>
+ 
+    <div class="header">
+        &nbsp;
+    </div>
+	<div class="items item1">
+        <img class="item_image" src="http://upload.wikimedia.org/wikipedia/en/4/4a/Bluepinto.jpg">
+        <h2 class="item_caption">'79 Ford Pinto $199</h2>
+        <div class="item_icons">
+            <p>Icons</p>
+        </div>
+    </div>
+	<div class="items">
+        <img class="item_image" src="http://files.conceptcarz.com/img/Ford/73-Ford-Pinto-DV-08-AACA_i01.jpg">
+        <h2 class="item_caption">You Can Steer</h2>
+    </div>
+	<div class="items">
+        <img class="item_image" src="http://hooniverse.com/wp-content/uploads/2012/02/1974-Ford-Pinto-Classic-Cars-of-Sarasota-Sarasota-FL-Google-Chrome-272012-73425-PM.bmp.jpg">
+        <h2 class="item_caption">Great Interior</h2>
+    </div>
+    
+</body>
+ 
+</html>
