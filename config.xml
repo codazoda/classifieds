@@ -6,7 +6,6 @@
         version   = "1.0.0">
 
     <gap:platform name="android" />
-    <gap:platform name="winphone" />
 
     <name>Classifieds</name>
 
