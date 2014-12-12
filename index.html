@@ -12,6 +12,20 @@
         
         setInterval(resizeImages, 250);
         
+        $('#newAd').click(getPicture);
+        
+        function getPicture() {
+            navigator.camera.getPicture(onPictureSuccess, onPictureFail, {quality:50, destinationType: Camera.DestinationType.DATA_URL});
+        }
+        
+        function onPictureSuccess() {
+            alert('Got image.');
+        }
+        
+        function onPictueFail() {
+            alert('That no good.');
+        }
+        
         function showIcons(className) {
             $(className).show();
         }
@@ -102,7 +116,7 @@
  
     <div class="header">
         <div class="title">Classifieds</div>
-        <div class="menu fa fa-plus"></div>
+        <div id="newAd" class="menu fa fa-plus"></div>
     </div>
     <div style="clear: both"></div>
 	<div class="items" onclick="showIcons('.item1');">
