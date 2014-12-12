@@ -21,7 +21,7 @@
         
         function getPicture() {
             alert('pic');
-            navigator.camera.getPicture(onPictureSuccess, onPictueFail, { 
+            navigator.camera.getPicture(onPictureSuccess, onPictureFail, { 
                 quality: 75,
                 destinationType: Camera.DestinationType.DATA_URL
             });
@@ -31,7 +31,7 @@
             alert('Got image.');
         }
         
-        function onPictueFail() {
+        function onPictureFail() {
             alert('That no good.');
         }
         
